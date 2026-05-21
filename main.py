@@ -34,7 +34,7 @@ async def delete_student(student_id: int, db: Session = Depends(get_db)):
 async def get_instructors(db: Session = Depends(get_db)) -> list[Instructor]:
     return db.exec(select(Instructor)).all()
 
-@app.get("/instructos/{id}")
+@app.get("/instructos/{id}/courses")
 async def get_instructors_course(id: int, db: Session = Depends(get_db)) -> list[str]:
     instructor: Instructor | None = db.get(Instructor, id)
     if instructor is None:
